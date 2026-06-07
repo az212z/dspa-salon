@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دي سبا · D SPA · تبوك</title>
+<meta name="description" content="دي سبا (D SPA) في تبوك — صالون نسائي فاخر متخصص في الأظافر والرموش، بإتقانٍ ونظافةٍ عالية وأجواء راقية. احجزي الآن عبر واتساب.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Marcellus&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<style>
+:root{
+  --taupe:#b6a48d; --taupe-d:#9c8a72; --greige:#cabba6; --sand:#f3ede3; --sand-2:#ece2d2;
+  --blush:#dcaea6; --blush-d:#c8928a; --blush-soft:#f0ddd7;
+  --gold:#bb9a5c; --gold-l:#cdb079; --ink:#3a342d; --muted:#897f70;
+  --line:rgba(58,52,45,.13);
+  --shadow:0 24px 64px -26px rgba(58,52,45,.4);
+  --wa:#25d366;
+  --f-ar-d:'Reem Kufi',sans-serif; --f-ar:'Tajawal',sans-serif;
+  --f-en-d:'Marcellus',serif; --f-en:'Jost',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-ar);background:var(--sand);color:var(--ink);line-height:1.85;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.en{font-family:var(--f-en);direction:ltr;letter-spacing:.06em}
+.en-d{font-family:var(--f-en-d);direction:ltr;letter-spacing:.04em}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* nav */
+nav{position:fixed;top:0;right:0;left:0;z-index:90;padding:18px 0;transition:.45s}
+nav.scrolled{background:rgba(243,237,227,.94);backdrop-filter:blur(14px);padding:11px 0;box-shadow:0 8px 30px -20px rgba(58,52,45,.4)}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;transition:.45s}
+nav.scrolled .brand{color:var(--ink)}
+.brand .mono{width:38px;height:38px;border:1.5px solid currentColor;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f-en-d);font-size:1.15rem;flex:none}
+.brand .bt{display:flex;flex-direction:column;line-height:1.1}
+.brand .bt b{font-family:var(--f-en-d);font-size:1.2rem;letter-spacing:.22em;direction:ltr}
+.brand .bt small{font-size:.78rem;opacity:.82;font-weight:500}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:#fff;font-size:.96rem;font-weight:500;opacity:.9;position:relative;transition:.3s}
+nav.scrolled .nav-links a{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;bottom:-6px;right:0;width:0;height:1.5px;background:var(--gold);transition:.35s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--gold);color:#fff!important;padding:9px 20px;border-radius:6px;display:inline-flex;align-items:center;gap:7px;font-weight:500;transition:.35s}
+.nav-cta:hover{background:var(--gold-l);transform:translateY(-2px)}
+.nav-cta::after{display:none!important}
+.burger{display:none;background:none;border:none;cursor:pointer;color:#fff;font-size:1.7rem}
+nav.scrolled .burger{color:var(--ink)}
+
+#mnav{position:fixed;inset:0;z-index:120;background:linear-gradient(160deg,#5a4f40,#3a342d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transform:translateX(100%);transition:.5s cubic-bezier(.6,.05,.2,1);visibility:hidden}
+#mnav.open{transform:none;visibility:visible}
+#mnav a{color:#fff;font-size:1.5rem;font-family:var(--f-ar-d);padding:11px}
+#mnav .x{position:absolute;top:24px;left:24px;font-size:2rem;color:#fff;background:none;border:none}
+#mnav .mlogo{font-family:var(--f-en-d);letter-spacing:.22em;color:var(--gold-l);font-size:1.6rem;margin-bottom:14px;direction:ltr}
+#mnav .wa-m{margin-top:18px;background:var(--wa);color:#fff;padding:13px 30px;border-radius:8px;font-family:var(--f-ar);font-size:1.05rem;display:inline-flex;align-items:center;gap:9px}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(img/hero.jpg) center/cover;transform:scale(1.05)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(45,40,32,.8) 0%,rgba(45,40,32,.5) 48%,rgba(58,52,45,.32) 100%)}
+.hero-in{position:relative;z-index:2;color:#fff;max-width:700px;padding-top:70px}
+.hero .tag{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-en);letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--gold-l);border:1px solid rgba(205,176,121,.5);padding:8px 18px;border-radius:4px;margin-bottom:24px}
+.hero h1{font-family:var(--f-ar-d);font-weight:700;font-size:clamp(3rem,9vw,5.6rem);line-height:1.04;margin-bottom:6px}
+.hero .latin{font-family:var(--f-en-d);font-size:clamp(1.3rem,3.4vw,2.1rem);color:#fff;opacity:.9;direction:ltr;letter-spacing:.34em;margin-bottom:22px}
+.hero p{font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:300;max-width:540px;opacity:.96;margin-bottom:34px}
+.hero-cta{display:flex;gap:15px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:8px;font-family:var(--f-ar);font-weight:500;font-size:1rem;cursor:pointer;transition:.4s;border:1.5px solid transparent}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{background:#1eb858;transform:translateY(-3px);box-shadow:0 14px 30px -12px rgba(37,211,102,.6)}
+.btn-g{background:var(--gold);color:#fff}
+.btn-g:hover{background:var(--gold-l);transform:translateY(-3px)}
+.btn-o{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-o:hover{background:#fff;color:var(--ink)}
+.scroll-c{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;color:#fff;display:flex;flex-direction:column;align-items:center;gap:7px;font-family:var(--f-en);font-size:.68rem;letter-spacing:.25em;opacity:.8}
+.scroll-c i{font-size:1.4rem;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* strip */
+.strip{background:var(--taupe-d);color:#fff}
+.strip-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip-in div{padding:22px 16px;text-align:center;border-inline-end:1px solid rgba(255,255,255,.16)}
+.strip-in div:last-child{border:none}
+.strip-in i{font-size:1.5rem;color:var(--gold-l);display:block;margin-bottom:6px}
+.strip-in b{font-family:var(--f-ar-d);font-size:1.02rem;font-weight:600;display:block}
+.strip-in span{font-size:.8rem;opacity:.82}
+
+.sec{padding:104px 0}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-en);letter-spacing:.26em;text-transform:uppercase;font-size:.73rem;color:var(--gold);margin-bottom:18px;font-weight:500}
+.kicker::before{content:"";width:28px;height:1px;background:var(--gold)}
+.sec h2{font-family:var(--f-ar-d);font-weight:700;font-size:clamp(2rem,5vw,3.1rem);line-height:1.18;margin-bottom:18px;color:var(--ink)}
+.sec h2 .latin{display:block;font-family:var(--f-en-d);font-size:.5em;color:var(--gold);margin-top:8px;direction:ltr;letter-spacing:.16em}
+.sec-head{margin-bottom:56px;max-width:680px}
+.center{margin-inline:auto;text-align:center}
+.center .kicker{justify-content:center}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:62px;align-items:center}
+.about-txt p{color:var(--ink);margin-bottom:18px;font-weight:300;font-size:1.06rem}
+.about-txt .sig{font-family:var(--f-en-d);color:var(--gold);font-size:1.2rem;direction:ltr;letter-spacing:.08em}
+.about-media{position:relative}
+.about-media img{border-radius:6px;box-shadow:var(--shadow);width:100%;height:560px;object-fit:cover}
+.about-media::before{content:"";position:absolute;inset:-14px -14px 14px 14px;border:1.5px solid var(--gold-l);border-radius:6px;z-index:-1}
+.about-badge{position:absolute;bottom:-24px;right:-22px;background:#fff;color:var(--ink);padding:18px 24px;border-radius:8px;box-shadow:var(--shadow);text-align:center}
+.about-badge b{font-family:var(--f-en-d);font-size:1.9rem;display:block;line-height:1;color:var(--gold)}
+.about-badge span{font-size:.78rem;color:var(--muted)}
+
+/* services */
+.services{background:var(--sand-2)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:8px;padding:36px 30px;transition:.4s;position:relative;overflow:hidden}
+.svc::before{content:"";position:absolute;top:0;right:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),var(--blush));transform:scaleX(0);transform-origin:right;transition:.45s}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.svc:hover::before{transform:scaleX(1)}
+.svc .ic{width:64px;height:64px;border-radius:50%;background:var(--sand);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--gold);margin-bottom:20px;transition:.4s}
+.svc:hover .ic{background:var(--gold);color:#fff;border-color:var(--gold)}
+.svc h3{font-family:var(--f-ar-d);font-weight:600;font-size:1.36rem;margin-bottom:6px}
+.svc .ename{font-family:var(--f-en);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.svc ul{list-style:none}
+.svc ul li{font-size:.96rem;color:var(--ink);padding:7px 0;display:flex;align-items:center;gap:10px;font-weight:400;border-bottom:1px dashed var(--line)}
+.svc ul li:last-child{border:none}
+.svc ul li i{color:var(--blush-d);font-size:1rem}
+
+/* feature */
+.feat-band{background:#fff}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.feat-media{position:relative}
+.feat-media img{border-radius:6px;box-shadow:var(--shadow);width:100%;height:520px;object-fit:cover}
+.feat-list{list-style:none}
+.feat-list li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.feat-list li:last-child{border:none}
+.feat-list .fic{width:48px;height:48px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--gold);flex:none}
+.feat-list b{font-family:var(--f-ar-d);font-weight:600;font-size:1.12rem;display:block}
+.feat-list span{font-size:.94rem;color:var(--muted);font-weight:300}
+
+/* gallery */
+.gallery{background:var(--sand)}
+.g-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px}
+.g-grid figure{overflow:hidden;border-radius:6px;cursor:pointer;position:relative}
+.g-grid img{width:100%;height:100%;object-fit:cover;transition:.7s}
+.g-grid figure:hover img{transform:scale(1.08)}
+.g-grid figure::after{content:"\f06e";font-family:"Phosphor";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(58,52,45,.42);color:#fff;font-size:1.6rem;opacity:0;transition:.4s}
+.g-grid figure:hover::after{opacity:1}
+.tall{grid-row:span 2}.wide{grid-column:span 2}
+
+/* booking */
+.booking{background:linear-gradient(135deg,#5a4f40 0%,#3a342d 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+.booking::before,.booking::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.05)}
+.booking::before{width:340px;height:340px;top:-120px;right:-80px}
+.booking::after{width:260px;height:260px;bottom:-100px;left:-60px}
+.booking .wrap{position:relative;z-index:2}
+.booking .latin{font-family:var(--f-en-d);font-size:1.3rem;opacity:.85;margin-bottom:8px;direction:ltr;letter-spacing:.16em;color:var(--gold-l)}
+.booking h2{font-family:var(--f-ar-d);font-weight:700;font-size:clamp(2rem,5vw,3rem);margin-bottom:16px}
+.booking p{font-weight:300;font-size:1.12rem;opacity:.95;max-width:560px;margin:0 auto 32px}
+
+/* visit */
+.visit{background:var(--sand-2)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.info-row{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.info-row i{font-size:1.4rem;color:var(--gold);flex:none;margin-top:3px}
+.info-row .t{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-family:var(--f-en);color:var(--muted);margin-bottom:2px}
+.info-row .v{font-size:1.05rem;font-weight:400}
+.visit-map{border-radius:8px;overflow:hidden;box-shadow:var(--shadow);min-height:440px;border:1px solid var(--line)}
+.visit-map iframe{width:100%;height:100%;min-height:440px;border:0}
+.hours-pill{display:inline-flex;align-items:center;gap:9px;background:var(--blush-soft);color:var(--blush-d);padding:8px 18px;border-radius:6px;font-size:.9rem;font-weight:500;margin-top:8px}
+.hours-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--blush-d)}
+
+/* footer */
+footer{background:#2c2720;color:#fff;padding:60px 0 26px}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:34px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand .mono{width:46px;height:46px;border:1.5px solid var(--gold-l);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f-en-d);font-size:1.4rem;color:var(--gold-l);margin-bottom:12px}
+.foot-brand b{font-family:var(--f-en-d);letter-spacing:.22em;font-size:1.3rem;direction:ltr;display:block;margin-bottom:6px}
+.foot-brand p{opacity:.65;font-weight:300;max-width:290px;font-size:.95rem}
+.foot-soc{display:flex;gap:11px;margin-top:18px}
+.foot-soc a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:.35s}
+.foot-soc a:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-3px)}
+.foot-col h4{font-family:var(--f-ar-d);font-weight:600;font-size:1.08rem;margin-bottom:15px;color:var(--gold-l)}
+.foot-col a,.foot-col p{display:block;opacity:.68;font-weight:300;font-size:.94rem;margin-bottom:9px;transition:.3s}
+.foot-col a:hover{opacity:1;color:var(--gold-l)}
+.foot-bot{text-align:center;padding-top:24px;opacity:.55;font-size:.84rem;font-weight:300}
+
+.wa-float{position:fixed;bottom:24px;left:24px;z-index:130;background:var(--wa);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 14px 34px -8px rgba(37,211,102,.6);transition:.35s;animation:pulse 2.4s infinite}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float .lbl{position:absolute;right:72px;background:#fff;color:var(--ink);padding:8px 16px;border-radius:30px;font-size:.9rem;font-weight:500;white-space:nowrap;box-shadow:var(--shadow);opacity:0;transform:translateX(10px);transition:.35s;pointer-events:none}
+.wa-float:hover .lbl{opacity:1;transform:none}
+@keyframes pulse{0%{box-shadow:0 14px 34px -8px rgba(37,211,102,.6),0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 14px 34px -8px rgba(37,211,102,.6),0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 14px 34px -8px rgba(37,211,102,.6),0 0 0 0 rgba(37,211,102,0)}}
+
+#lb{position:fixed;inset:0;z-index:200;background:rgba(44,39,32,.95);display:none;align-items:center;justify-content:center;padding:30px}
+#lb.open{display:flex}
+#lb img{max-width:90vw;max-height:88vh;border-radius:8px}
+#lb .x{position:absolute;top:24px;left:30px;color:#fff;font-size:2.2rem;cursor:pointer;background:none;border:none}
+
+@media(max-width:880px){
+  .nav-links{display:none}.burger{display:block}
+  .about-grid,.feat-grid,.visit-grid{grid-template-columns:1fr;gap:40px}
+  .about-media img,.feat-media img{height:420px}
+  .svc-grid{grid-template-columns:1fr;max-width:430px;margin:0 auto}
+  .strip-in{grid-template-columns:1fr 1fr}
+  .strip-in div:nth-child(2){border-inline-end:none}
+  .strip-in div:nth-child(1),.strip-in div:nth-child(2){border-bottom:1px solid rgba(255,255,255,.16)}
+  .g-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .wide{grid-column:span 2}.tall{grid-row:span 1}
+  .sec{padding:72px 0}
+  .about-media::before{inset:-8px -8px 8px 8px}.about-badge{right:auto;left:-8px}
+}
+@media(max-width:480px){.g-grid{grid-auto-rows:150px}.hero-cta{flex-direction:column}.btn{justify-content:center}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#home" class="brand"><span class="mono">D</span><span class="bt"><b>D SPA</b><small>دي سبا</small></span></a>
+    <div class="nav-links">
+      <a href="#about">عن الصالون</a>
+      <a href="#services">خدماتنا</a>
+      <a href="#why">لماذا نحن</a>
+      <a href="#gallery">المعرض</a>
+      <a href="#visit">الموقع</a>
+      <a href="https://wa.me/966538778497?text=مرحباً،%20أرغب%20بالحجز%20في%20دي%20سبا" target="_blank" rel="noopener" class="nav-cta"><i class="ph-fill ph-whatsapp-logo"></i> احجزي الآن</a>
+    </div>
+    <button class="burger" onclick="openM()" aria-label="القائمة"><i class="ph ph-list"></i></button>
+  </div>
+</nav>
+
+<div id="mnav">
+  <button class="x" onclick="closeM()" aria-label="إغلاق"><i class="ph ph-x"></i></button>
+  <span class="mlogo">D SPA · دي سبا</span>
+  <a href="#about">عن الصالون</a>
+  <a href="#services">خدماتنا</a>
+  <a href="#why">لماذا نحن</a>
+  <a href="#gallery">المعرض</a>
+  <a href="#visit">الموقع</a>
+  <a href="https://wa.me/966538778497?text=مرحباً،%20أرغب%20بالحجز%20في%20دي%20سبا" target="_blank" rel="noopener" class="wa-m"><i class="ph-fill ph-whatsapp-logo"></i> احجزي عبر واتساب</a>
+</div>
+
+<header class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-in">
+    <span class="tag rv">NAILS &amp; LASHES · TABUK</span>
+    <h1 class="rv d1">دي سبا</h1>
+    <div class="latin rv d1">D SPA</div>
+    <p class="rv d2">صالونٌ نسائي فاخر في تبوك، اختار التميّز في تخصصه — الأظافر والرموش بإتقانٍ واضح، في أجواءٍ راقية وهادئة ونظافةٍ تليق بكِ.</p>
+    <div class="hero-cta rv d3">
+      <a href="https://wa.me/966538778497?text=مرحباً،%20أرغب%20بالحجز%20في%20دي%20سبا" target="_blank" rel="noopener" class="btn btn-wa"><i class="ph-fill ph-whatsapp-logo"></i> احجزي عبر واتساب</a>
+      <a href="#services" class="btn btn-o"><i class="ph ph-sparkle"></i> خدماتنا</a>
+    </div>
+  </div>
+  <div class="scroll-c"><span>SCROLL</span><i class="ph ph-caret-down"></i></div>
+</header>
+
+<div class="strip">
+  <div class="wrap"><div class="strip-in">
+    <div class="rv"><i class="ph ph-hand-heart"></i><b>تخصص الأظافر</b><span>مانيكير وبديكير وروسي</span></div>
+    <div class="rv d1"><i class="ph ph-eye"></i><b>تخصص الرموش</b><span>تركيب وتكثيف</span></div>
+    <div class="rv d2"><i class="ph ph-sparkle"></i><b>نظافة عالية</b><span>تعقيم وأدوات معقّمة</span></div>
+    <div class="rv d3"><i class="ph ph-star"></i><b>تقييم 4.2</b><span>+499 زائرة</span></div>
+  </div></div>
+</div>
+
+<section class="sec about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-txt rv">
+      <span class="kicker">عن الصالون · ABOUT US</span>
+      <h2>التميّز في التخصص<span class="latin">mastery in detail</span></h2>
+      <p>دي سبا (D SPA) صالونٌ نسائي فاخر في حي العليا بتبوك، اختار طريق التميّز: التركيز على ما يُتقنه ببراعة — الأظافر والرموش. مساحاتٌ واسعة بأعمدةٍ شامخة وإضاءةٍ دافئة وتفاصيلَ راقية تمنحكِ تجربةً مختلفة.</p>
+      <p>شغلٌ مرتّب ونظيف بنتيجةٍ ترضيكِ وأكثر، وطاقمٌ محترف يحرص على راحتكِ وخصوصيتكِ — وهو ما تشيد به زائراتنا مرارًا. مكانٌ يعرف كيف يحافظ على عميلاته بجودة الخدمة وحُسن التعامل.</p>
+      <p class="sig">D SPA — for you.</p>
+      <a href="https://wa.me/966538778497?text=مرحباً،%20أرغب%20بالاستفسار%20عن%20خدمات%20دي%20سبا" target="_blank" rel="noopener" class="btn btn-g" style="margin-top:14px"><i class="ph-fill ph-whatsapp-logo"></i> تواصلي معنا</a>
+    </div>
+    <div class="about-media rv d2">
+      <img src="img/about.jpg" alt="داخل دي سبا">
+      <div class="about-badge"><b class="en">4.2★</b><span>تقييم الزائرات</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec services" id="services">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="kicker">خدماتنا · OUR SERVICES</span>
+      <h2>تخصصٌ بإتقان<span class="latin">curated &amp; crafted</span></h2>
+    </div>
+    <div class="svc-grid">
+      <article class="svc rv d1">
+        <div class="ic"><i class="ph ph-hand-heart"></i></div>
+        <h3>الأظافر</h3>
+        <div class="ename">Nails</div>
+        <ul>
+          <li><i class="ph ph-check"></i> مانيكير وبديكير</li>
+          <li><i class="ph ph-check"></i> مانيكير روسي</li>
+          <li><i class="ph ph-check"></i> تركيب وتلميع الأظافر</li>
+          <li><i class="ph ph-check"></i> تصاميم وألوان فاخرة</li>
+        </ul>
+      </article>
+      <article class="svc rv d2">
+        <div class="ic"><i class="ph ph-eye"></i></div>
+        <h3>الرموش</h3>
+        <div class="ename">Lashes</div>
+        <ul>
+          <li><i class="ph ph-check"></i> تركيب الرموش</li>
+          <li><i class="ph ph-check"></i> تكثيف وتنسيق</li>
+          <li><i class="ph ph-check"></i> إطلالة طبيعية أو فاخرة</li>
+          <li><i class="ph ph-check"></i> بأنامل متخصصة</li>
+        </ul>
+      </article>
+      <article class="svc rv d3">
+        <div class="ic"><i class="ph ph-sparkle"></i></div>
+        <h3>العناية والراحة</h3>
+        <div class="ename">Care &amp; Comfort</div>
+        <ul>
+          <li><i class="ph ph-check"></i> نظافة وتعقيم عالٍ</li>
+          <li><i class="ph ph-check"></i> أدوات معقّمة لكل عميلة</li>
+          <li><i class="ph ph-check"></i> أجواء هادئة وخصوصية</li>
+          <li><i class="ph ph-check"></i> ضيافة راقية</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec feat-band" id="why">
+  <div class="wrap feat-grid">
+    <div class="feat-media rv">
+      <img src="img/lounge.jpg" alt="أجواء دي سبا">
+    </div>
+    <div class="rv d1">
+      <span class="kicker">لماذا نحن · WHY D SPA</span>
+      <h2>تجربةٌ تستحقينها<span class="latin">refined &amp; immaculate</span></h2>
+      <ul class="feat-list">
+        <li><div class="fic"><i class="ph ph-crown-simple"></i></div><div><b>تخصص وإتقان</b><span>ركّزنا على الأظافر والرموش لنقدّمها بأعلى مستوى من الجودة والدقة.</span></div></li>
+        <li><div class="fic"><i class="ph ph-sparkle"></i></div><div><b>نظافة وتعقيم عالٍ</b><span>بيئة معقّمة بالكامل وأدوات خاصة لكل عميلة — وهو ما تثني عليه زائراتنا دائمًا.</span></div></li>
+        <li><div class="fic"><i class="ph ph-heart"></i></div><div><b>طاقم محترف وذوق راقٍ</b><span>استقبالٌ لطيف وتعاملٌ يعكس احترافية المكان، مع حرصٍ على راحتكِ.</span></div></li>
+        <li><div class="fic"><i class="ph ph-armchair"></i></div><div><b>أجواء فاخرة وهادئة</b><span>مساحاتٌ واسعة وتصميمٌ راقٍ يمنحكِ الاسترخاء والخصوصية.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="kicker">المعرض · THE SPACE</span>
+      <h2>أجواء دي سبا<span class="latin">a peek inside</span></h2>
+    </div>
+    <div class="g-grid">
+      <figure class="tall rv"><img src="img/about.jpg" alt="صالة دي سبا"></figure>
+      <figure class="wide rv d1"><img src="img/interior.jpg" alt="داخل الصالون"></figure>
+      <figure class="rv d2"><img src="img/nails.jpg" alt="أعمال الأظافر"></figure>
+      <figure class="rv d1"><img src="img/service.jpg" alt="جلسة عناية بالأظافر"></figure>
+      <figure class="tall rv d2"><img src="img/lounge.jpg" alt="ركن الجلوس"></figure>
+      <figure class="rv d3"><img src="img/welcome.jpg" alt="ضيافة دي سبا"></figure>
+      <figure class="wide rv"><img src="img/hero.jpg" alt="المساحة الرئيسية"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec booking">
+  <div class="wrap">
+    <div class="latin rv">Treat yourself</div>
+    <h2 class="rv d1">جاهزة لتدليل نفسكِ؟</h2>
+    <p class="rv d2">احجزي موعدكِ بسهولة عبر واتساب — اختاري الخدمة والوقت المناسب وسنحرص على أن تكون تجربتكِ استثنائية.</p>
+    <div class="rv d3" style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/966538778497?text=مرحباً،%20أرغب%20بحجز%20موعد%20في%20دي%20سبا" target="_blank" rel="noopener" class="btn btn-wa"><i class="ph-fill ph-whatsapp-logo"></i> احجزي عبر واتساب</a>
+      <a href="tel:+966538778497" class="btn btn-o"><i class="ph ph-phone"></i> 0538778497</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec visit" id="visit">
+  <div class="wrap visit-grid">
+    <div class="rv">
+      <span class="kicker">الموقع · FIND US</span>
+      <h2>زورينا في تبوك<span class="latin">King Saud Rd, Alulaya</span></h2>
+      <div class="hours-pill"><span class="dot"></span> السبت–الخميس 1م · الجمعة 2م</div>
+      <div class="info-row"><i class="ph ph-map-pin"></i><div><div class="t">العنوان</div><div class="v">طريق الملك سعود، حي العليا، تبوك 47911</div></div></div>
+      <div class="info-row"><i class="ph ph-clock"></i><div><div class="t">ساعات العمل</div><div class="v">السبت–الخميس <span class="en">1:00–10:00 PM</span> · الجمعة <span class="en">2:00–11:00 PM</span> · الأحد إجازة</div></div></div>
+      <div class="info-row"><i class="ph-fill ph-whatsapp-logo"></i><div><div class="t">واتساب / هاتف</div><div class="v"><a href="https://wa.me/966538778497" target="_blank" rel="noopener" class="en">053 877 8497</a></div></div></div>
+      <div class="info-row"><i class="ph ph-instagram-logo"></i><div><div class="t">إنستغرام</div><div class="v"><a href="https://instagram.com/dspa.sa" target="_blank" rel="noopener" class="en">@dspa.sa</a></div></div></div>
+      <a href="https://maps.google.com/?q=D+SPA+دي+سبا+Tabuk" target="_blank" rel="noopener" class="btn btn-g" style="margin-top:24px"><i class="ph ph-navigation-arrow"></i> الاتجاهات على الخريطة</a>
+    </div>
+    <div class="visit-map rv d2">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=28.3874854,36.5845649&z=16&output=embed" title="موقع دي سبا"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="mono">D</div>
+        <b>D SPA · دي سبا</b>
+        <p>صالون نسائي فاخر متخصص في الأظافر والرموش — في حي العليا، تبوك.</p>
+        <div class="foot-soc">
+          <a href="https://instagram.com/dspa.sa" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          <a href="https://wa.me/966538778497" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph-fill ph-whatsapp-logo"></i></a>
+          <a href="https://maps.google.com/?q=D+SPA+دي+سبا+Tabuk" target="_blank" rel="noopener" aria-label="Map"><i class="ph ph-map-pin"></i></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>روابط</h4>
+        <a href="#about">عن الصالون</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#why">لماذا نحن</a>
+        <a href="#gallery">المعرض</a>
+      </div>
+      <div class="foot-col">
+        <h4>تواصلي معنا</h4>
+        <p class="en" style="direction:ltr">053 877 8497</p>
+        <p>طريق الملك سعود، حي العليا، تبوك 47911</p>
+        <p>السبت–الخميس 1م–10م · الجمعة 2م–11م</p>
+        <p class="en" style="direction:ltr">@dspa.sa</p>
+      </div>
+    </div>
+    <div class="foot-bot">© 2026 دي سبا · <span class="en">D SPA · Tabuk</span></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/966538778497?text=مرحباً،%20أرغب%20بالحجز%20في%20دي%20سبا" target="_blank" rel="noopener" class="wa-float" aria-label="احجزي عبر واتساب">
+  <i class="ph-fill ph-whatsapp-logo"></i>
+  <span class="lbl">احجزي عبر واتساب</span>
+</a>
+
+<div id="lb"><button class="x" onclick="closeLB()">&times;</button><img src="" alt=""></div>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+function openM(){document.getElementById('mnav').classList.add('open');document.body.style.overflow='hidden'}
+function closeM(){document.getElementById('mnav').classList.remove('open');document.body.style.overflow=''}
+document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',closeM));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();closeM();scrollTo({top:t.getBoundingClientRect().top+scrollY-64,behavior:'smooth'})}}})});
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.querySelectorAll('.g-grid figure img').forEach(img=>img.addEventListener('click',()=>{lbi.src=img.src;lbi.alt=img.alt;lb.classList.add('open');document.body.style.overflow='hidden'}));
+function closeLB(){lb.classList.remove('open');document.body.style.overflow=''}
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+const els=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver((ent)=>ent.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>io.observe(el));
+  const safety=()=>document.querySelectorAll('.rv:not(.in)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight+200)e.classList.add('in')});
+  addEventListener('scroll',safety,{passive:true});
+  addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(e=>e.classList.add('in')),1800));
+}else{els.forEach(el=>el.classList.add('in'));}
+</script>
+</body>
+</html>
